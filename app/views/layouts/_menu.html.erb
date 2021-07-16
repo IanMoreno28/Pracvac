@@ -1,0 +1,35 @@
+
+
+<nav class="navbar navbar-expand-xl navbar" style="background-color: #42F1BD;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Pracvac</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarLight" aria-controls="navbarLight"  aria-expanded="false" aria-label="Toggle navigation"  >
+      <span class="navbar-toggler-icon" ></span>
+    </button>
+    <div class="collapse navbar-collapse show" id="navbarLight">
+      <ul class="navbar-nav me-auto mb-2 mb-xl-0">
+        <li class="nav-item">
+          <%= link_to "Aplicacion de Vacunas", applications_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Niños", kids_path, class: 'nav-link'  %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Enfermeras", nurses_path, class: 'nav-link'  %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Vacunas", vaccines_path, class: 'nav-link' %>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <% if user_signed_in? %>
+        <%= link_to 'Cerrar sesion' + ' ' + current_user.email , destroy_user_session_path, method: :delete, class: 'nav-link'%>
+
+        <% else %>
+        <a class="nav-link active" href="/users/sign_in">Login</a>
+        <% end %>
+      </form>
+
+    </div>
+  </div>
+</nav>

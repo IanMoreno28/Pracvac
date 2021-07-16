@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dosis: 1
+  fecha: 2021-07-15
+  nurse: one
+  kids: one
+  vaccine: one
+
+two:
+  dosis: 1
+  fecha: 2021-07-15
+  nurse: two
+  kids: two
+  vaccine: two

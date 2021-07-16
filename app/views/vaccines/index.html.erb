@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Vaccines</h1>
+
+<form method="GET" action="/vaccines">
+   Nombre de Vacuna a Filtrar: <input type="text" name="filter" />
+
+  <input type="submit" />
+</form>
+
+<table class="table table-striped" style="background-color:#42F1BD;">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Cantidad de Vacunas Aplicadas</th>
+      <th>cantidad de distintas enfermeras que han aplicado la vacuna</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vaccines.each do |vaccine| %>
+      <tr>
+        <td><%= vaccine.nombre %></td>
+
+        <td><%= link_to vaccine.applications.count, applications_path(:vaccine_id => vaccine.id) %></td>
+        <td><%= link_to vaccine.nurses.distinct.count, nurses_path(:vaccine_id => vaccine.id) %></td>
+
+        <td><%= link_to 'Show', vaccine %></td>
+        <td><%= link_to 'Edit', edit_vaccine_path(vaccine) %></td>
+        <td><%= link_to 'Destroy', vaccine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vaccine', new_vaccine_path %>
